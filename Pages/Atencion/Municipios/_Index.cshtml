@@ -13,9 +13,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.CatMunicipio[0].Nombre)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CatMunicipio[0].Descripcion)
-            </th>
+            
             <th></th>
         </tr>
     </thead>
@@ -27,9 +25,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Nombre)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Descripcion)
-                </td>
+               
                 <td>
                     <a asp-page="./Edit" asp-route-id="@item.IdMunicipio">Edit</a> |
                     <a asp-page="./Details" asp-route-id="@item.IdMunicipio">Details</a> |
