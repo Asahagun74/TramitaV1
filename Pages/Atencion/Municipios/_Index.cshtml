@@ -1,0 +1,44 @@
+﻿
+@model WebAuthent.Pages.Atencion.IndexModel
+
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+
+<h1>Municipios</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CatMunicipio[0].Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CatMunicipio[0].Descripcion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model.CatMunicipio)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.IdMunicipio">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.IdMunicipio">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.IdMunicipio">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

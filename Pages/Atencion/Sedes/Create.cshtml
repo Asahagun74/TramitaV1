@@ -1,0 +1,48 @@
+﻿@page
+@model WebAuthent.Pages.Atencion.Sedes.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>CatSede</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CatSede.Nombre" class="control-label"></label>
+                <input asp-for="CatSede.Nombre" class="form-control" />
+                <span asp-validation-for="CatSede.Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CatSede.Direccion" class="control-label"></label>
+                <input asp-for="CatSede.Direccion" class="form-control" />
+                <span asp-validation-for="CatSede.Direccion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CatSede.Responsable" class="control-label"></label>
+                <input asp-for="CatSede.Responsable" class="form-control" />
+                <span asp-validation-for="CatSede.Responsable" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CatSede.IdMunicipio" class="control-label"></label>
+                <select asp-for="CatSede.IdMunicipio" class ="form-control" asp-items="ViewBag.IdMunicipio"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

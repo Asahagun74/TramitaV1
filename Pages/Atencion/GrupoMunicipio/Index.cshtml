@@ -1,0 +1,42 @@
+﻿@page
+@model WebAuthent.Pages.Atencion.GrupoMunicipio.IndexModel
+
+@{
+    ViewData["Title"] = "Grupos Municipio";
+}
+
+<h1>Grupos Municipio</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CatGrupoMunicipio[0].IdGpoAtencionNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CatGrupoMunicipio[0].IdMunicipioNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.CatGrupoMunicipio) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdGpoAtencionNavigation.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdMunicipioNavigation.Nombre)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

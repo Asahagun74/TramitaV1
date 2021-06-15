@@ -1,0 +1,54 @@
+﻿@page
+@model WebAuthent.Pages.Atencion.Sedes.IndexModel
+
+@{
+    ViewData["Title"] = "Sedes";
+}
+
+<h1>Sedes</h1>
+
+<p>
+    <a asp-page="Create">Crear nueva sede</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CatSede[0].Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CatSede[0].Direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CatSede[0].Responsable)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CatSede[0].IdMunicipioNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.CatSede) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Responsable)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdMunicipioNavigation.Nombre)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.IdSede">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.IdSede">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.IdSede">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

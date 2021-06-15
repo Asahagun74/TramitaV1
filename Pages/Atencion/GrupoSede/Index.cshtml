@@ -1,0 +1,54 @@
+﻿@page
+@model WebAuthent.Pages.Atencion.GrupoSede.IndexModel
+
+@{
+    ViewData["Title"] = "Grupo Sede";
+}
+
+<h1>Grupo Sede</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CatGruposSede[0].IdGpoAtencionNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CatGruposSede[0].IdSedeNavigation)
+            </th>
+            <th>Responsable</th>
+            <th>Municipo</th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.CatGruposSede) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdGpoAtencionNavigation.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdSedeNavigation.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdSedeNavigation.Responsable)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.IdSedeNavigation.IdMunicipioNavigation.Nombre)
+            </td>
+
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

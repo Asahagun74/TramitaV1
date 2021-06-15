@@ -1,0 +1,17 @@
+﻿@page
+@model WebAuthent.Pages.Atencion.mpioAtencion.AltaMpioAtencion
+@{
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Main Page</title>
+</head>
+<body>
+
+    @await Html.PartialAsync("_create", Model.mCreate)
+    <br/>
+    @await Html.PartialAsync("_details.cshtml", Model.mDetail); 
+
+</body>
+</html>

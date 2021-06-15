@@ -1,0 +1,47 @@
+﻿@page
+@model WebAuthent.Pages.Atencion.mpioAtencion.IndexModel
+
+@{
+    ViewData["Title"] = "Municipios de atencion";
+}
+
+<h1>Municipios de atencion</h1>
+
+<p>
+    <a asp-page="Create">Crear Nuevo Municipio de atencion</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CatMunicipioAtencion[0].IdMunicipio)
+
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CatMunicipioAtencion[0].IdMunicipioNavigation)
+
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.CatMunicipioAtencion) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdMpioAtencionNavigation.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdMunicipioNavigation.Nombre)
+            </td>
+            <td>
+                <!--Html.ActionLink("Edit", "Edit", new { id = item.IdMpioAtencion }) |
+    Html.ActionLink("Details", "Details", new { id = item.IdMpioAtencion }) |
+    Html.ActionLink("Delete", "Delete", new { id = item.IdMpioAtencion })-->
+                <a asp-page="./Edit" asp-route-id="@item.IdMpioAtencionNavigation.IdMunicipio">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.IdMpioAtencionNavigation.IdMunicipio">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.IdMpioAtencionNavigation.IdMunicipio">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

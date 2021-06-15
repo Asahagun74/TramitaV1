@@ -1,0 +1,42 @@
+﻿@page
+@model WebAuthent.Pages.Atencion.GruposAtencion.IndexModel
+
+@{
+    ViewData["Title"] = "Grupos de Atencion";
+}
+
+<h1>Grupos de Atencion</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CatGruposAtencion[0].Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CatGruposAtencion[0].Descripcion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.CatGruposAtencion) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.IdGpoAtencion">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.IdGpoAtencion">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.IdGpoAtencion">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
